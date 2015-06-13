@@ -8,7 +8,7 @@ import retrofit.http.POST;
 import retrofit.http.Path;
 
 public interface TransactionService {
-    @POST("")
-    public void getData(Callback<List<Transaction>>)
+    @POST("/")
+    public void getData(Callback<List<Transaction>> response);
 
 }
