@@ -19,45 +19,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class TransactionStore extends AsyncTask<String, Void, String> {
-
-    private static final String URL = "https://gentle-atoll-9160.herokuapp.com/api/login";
-    private final String username = "dang";
-    private final String password = "123";
+public class TransactionStore {
 
     public List<Transaction> store=new ArrayList<Transaction>();
-
-    public TransactionStore(){
-        //addDemoData();
-    }
-
-    @Override
-    protected String doInBackground(String... params) {
-        HttpClient client = new DefaultHttpClient();
-        HttpPost post = new HttpPost(URL);
-        //parameters for send
-        List namePassword = new ArrayList(1);
-        namePassword.add(new BasicNameValuePair("username", this.username));
-        namePassword.add(new BasicNameValuePair("password", this.password));
-
-        try {
-            post.setEntity(new UrlEncodedFormEntity(namePassword));
-            HttpResponse response = client.execute(post);
-            BufferedReader rd = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
-            //test if we get something back
-            String line = "";
-            while((line = rd.readLine()) != null){
-                Log.d(line, "html");
-            }
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (ClientProtocolException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
 
     public void addDemoData(){
        for (int i = 0; i <10; i++) {

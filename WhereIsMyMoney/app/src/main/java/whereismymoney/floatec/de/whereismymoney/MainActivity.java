@@ -31,7 +31,16 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        new TransactionStore().execute("");
+        String[] logindaten = {"dang", "123"};
+        TransactionStore t = new TransactionStore();
+        t.mc = new CallbackInterface() {
+            @Override
+            public void callBack(String myData) {
+                Log.d(myData, "myData");
+            }
+        };
+
+        t.execute(logindaten);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
