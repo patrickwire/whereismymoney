@@ -10,9 +10,9 @@ import java.util.List;
 
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactViewHolder> {
 
-    private List<ContactInfo> contactList;
+    private List<Transaction> contactList;
 
-    public ContactAdapter(List<ContactInfo> contactList) {
+    public ContactAdapter(List<Transaction> contactList) {
         this.contactList = contactList;
     }
 
@@ -23,8 +23,8 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
 
     @Override
     public void onBindViewHolder(ContactViewHolder contactViewHolder, int i) {
-        ContactInfo ci = contactList.get(i);
-       contactViewHolder.vName.setText(ci.name); /*
+        Transaction ci = contactList.get(i);
+       contactViewHolder.vName.setText(""+ci.getValue()); /*
         contactViewHolder.vSurname.setText(ci.surname);
         contactViewHolder.vEmail.setText(ci.email);
         contactViewHolder.vTitle.setText(ci.name + " " + ci.surname);*/

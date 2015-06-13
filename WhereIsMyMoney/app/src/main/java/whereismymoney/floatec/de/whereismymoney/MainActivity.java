@@ -1,14 +1,18 @@
 package whereismymoney.floatec.de.whereismymoney;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 import com.melnykov.fab.FloatingActionButton;
 
@@ -22,6 +26,7 @@ public class MainActivity extends Activity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private TransactionStore ts = new TransactionStore();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,21 +41,41 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setContentView(R.layout.activity_main);
-        RecyclerView recList = (RecyclerView) findViewById(R.id.cardList);
+        final RecyclerView recList = (RecyclerView) findViewById(R.id.cardList);
         recList.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
-
-        ContactAdapter ca = new ContactAdapter(createList(30));
+        ts.addDemoData();
+        ContactAdapter ca = new ContactAdapter(ts.store);
         recList.setAdapter(ca);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(getApplicationContext());
 
+                alert.setTitle("How much have you spend?");
+                alert.setMessage("");
 
+// Set an EditText view to get user input
+                final EditText input = new EditText(getApplicationContext());
+                alert.setView(input);
+
+                AlertDialog.Builder ok = alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+
+                    }
+                });
+
+                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // Canceled.
+                    }
+                });
+
+                alert.show();
             }
         });
     }
