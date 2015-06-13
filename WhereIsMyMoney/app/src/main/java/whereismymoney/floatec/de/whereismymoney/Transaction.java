@@ -1,5 +1,7 @@
 package whereismymoney.floatec.de.whereismymoney;
 
+import java.sql.Timestamp;
+
 /**
  * Created by floatec on 6/13/15.
  */
@@ -7,6 +9,7 @@ public class Transaction {
     private float val;
     private double lat;
     private double lng;
+    private int time;
 
 
     public float getValue() {
@@ -20,6 +23,8 @@ public class Transaction {
         this.val=val;
         this.lat=lat;
         this.lng =lng;
+        this.time = (int) (System.currentTimeMillis());
+
     }
 
     public double getLat() {
