@@ -8,6 +8,9 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+
+import com.melnykov.fab.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +35,15 @@ public class MainActivity extends Activity {
 
         ContactAdapter ca = new ContactAdapter(createList(30));
         recList.setAdapter(ca);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+            }
+        });
     }
 
     private List<ContactInfo> createList(int size) {
