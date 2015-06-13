@@ -1,9 +1,11 @@
 package whereismymoney.floatec.de.whereismymoney;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -30,8 +32,11 @@ public class MainActivity extends Activity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // specify an adapter
-        mAdapter = new MyAdapter(myDataset);
+        //mAdapter = new MyAdapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
+        Intent intent = new Intent(getBaseContext(),CheckLocation.class);
+        getApplicationContext().startService(intent);
+        Log.i("Autostart", "started");
     }
 
     @Override
