@@ -3,12 +3,10 @@ package whereismymoney.floatec.de.whereismymoney;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,7 +14,6 @@ import android.widget.EditText;
 
 import com.melnykov.fab.FloatingActionButton;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,17 +28,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        String[] logindaten = {"dang", "123"};
-        reciveToken t = new reciveToken();
-        t.mc = new CallbackInterface() {
-            @Override
-            public void callBack(String myData) {
-                Log.d(myData, "myData");
-            }
-        };
-
-        t.execute(logindaten);
-
+        ts.getToken();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setContentView(R.layout.activity_main);
