@@ -31,12 +31,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        TransactionStore transStore = new TransactionStore();
-        try {
-            transStore.getToken();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        new TransactionStore().execute("");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
