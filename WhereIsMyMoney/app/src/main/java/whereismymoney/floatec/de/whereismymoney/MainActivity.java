@@ -1,10 +1,12 @@
 package whereismymoney.floatec.de.whereismymoney;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,8 +29,20 @@ public class MainActivity extends Activity {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        mAdapter = new CountryAdapter(CountryManager.getInstance().getCountries(), R.layout.row_country, this);
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        mRecyclerView.setHasFixedSize(true);
+
+        // use a linear layout manager
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        // specify an adapter
+        //mAdapter = new MyAdapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
+        Intent intent = new Intent(getBaseContext(),CheckLocation.class);
+        getApplicationContext().startService(intent);
+        Log.i("Autostart", "started");
     }
 
     @Override
