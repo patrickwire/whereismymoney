@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
 
         String[] logindaten = {"dang", "123"};
-        TransactionStore t = new TransactionStore();
+        reciveToken t = new reciveToken();
         t.mc = new CallbackInterface() {
             @Override
             public void callBack(String myData) {
