@@ -28,7 +28,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        ts.getToken();
+        ts.getData();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setContentView(R.layout.activity_main);
@@ -37,7 +37,7 @@ public class MainActivity extends Activity {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
-        ts.addDemoData();
+        //ts.addDemoData();
         ContactAdapter ca = new ContactAdapter(ts.store);
         recList.setAdapter(ca);
 

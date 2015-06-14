@@ -2,6 +2,7 @@ package whereismymoney.floatec.de.whereismymoney;
 
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -17,11 +18,13 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class reciveToken extends AsyncTask<String[], Void, String> {
 
     public CallbackInterface mc;
     private static final String URL = "https://gentle-atoll-9160.herokuapp.com/api/login";
+    //private static final String URL = "http://10.0.2.2";
 
     @Override
     protected String doInBackground(String[]... params) {
