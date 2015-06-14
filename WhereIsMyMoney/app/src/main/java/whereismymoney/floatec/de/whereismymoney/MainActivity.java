@@ -5,12 +5,10 @@ import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
-<<<<<<< HEAD
+
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
-=======
->>>>>>> cf51d7a1d2b805de9e9916c3bef4bcee7482d51f
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
