@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     card_view:cardCornerRadius="0dp"
-    android:layout_margin="0dp">
+    android:layout_margin="1dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -21,13 +21,15 @@
             android:textSize="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"/>
+
         <TextView
-            android:id="@+id/txtLocation"
+            android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name"
+            android:text="Surname"
             android:gravity="center_vertical"
-            android:textSize="20dp"
+            android:textSize="10dp"
+            android:layout_below="@id/txtName"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="5dp"/>
 

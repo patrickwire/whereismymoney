@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 public class  CheckLocation extends Service
 {
-    public static final String BROADCAST_ACTION = "Hello World";
+    public static final String BROADCAST_ACTION = "location";
     private static final int TWO_MINUTES = 1000 * 60 * 2;
     public LocationManager locationManager;
     public MyLocationListener listener;
@@ -25,10 +25,12 @@ public class  CheckLocation extends Service
     private static final int HELLO_ID = 1;
     Intent intent;
     int counter = 0;
+    TransactionStore ts=new TransactionStore();
 
     @Override
     public void onCreate()
     {
+        ts.addDemoData();
         super.onCreate();
         intent = new Intent(BROADCAST_ACTION);
     }
@@ -145,6 +147,15 @@ public class  CheckLocation extends Service
 
             }
 
+            /*for (int i = 0; i <ts.store.size(); i++) {
+                Transaction t =ts.store.get(i);
+                float[] res=null;
+                android.location.Location.distanceBetween(t.getLat(),t.getLng(),loc.getLatitude(),loc.getLongitude(),res);
+                if(res!=null){
+                    spawnNotification();
+                }
+            }*/
+            spawnNotification();
         }
 
         private void spawnNotification(){
@@ -182,6 +193,8 @@ public class  CheckLocation extends Service
         {
 
         }
+
+        
 
     }
 }
